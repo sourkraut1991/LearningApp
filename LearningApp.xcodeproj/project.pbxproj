@@ -16,6 +16,7 @@
 		64EC630E2934D25400DB633A /* ContentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EC630D2934D25400DB633A /* ContentDetailView.swift */; };
 		64EC63112934D4E300DB633A /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EC63102934D4E300DB633A /* AVKit.framework */; };
 		64EC63132934D6BB00DB633A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EC63122934D6BB00DB633A /* Constants.swift */; };
+		64EC631529361BDF00DB633A /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EC631429361BDF00DB633A /* CodeTextView.swift */; };
 		83CAF21D25F03C8D00EC180E /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CAF21C25F03C8D00EC180E /* LearningApp.swift */; };
 		83CAF21F25F03C8D00EC180E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CAF21E25F03C8D00EC180E /* HomeView.swift */; };
 		83CAF22125F03C8F00EC180E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83CAF22025F03C8F00EC180E /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		64EC630D2934D25400DB633A /* ContentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailView.swift; sourceTree = "<group>"; };
 		64EC63102934D4E300DB633A /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		64EC63122934D6BB00DB633A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		64EC631429361BDF00DB633A /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		83CAF21925F03C8D00EC180E /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CAF21C25F03C8D00EC180E /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		83CAF21E25F03C8D00EC180E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				64EC63092934C9A700DB633A /* ContentView.swift */,
 				64EC630B2934CFF700DB633A /* ContentViewRow.swift */,
 				64EC630D2934D25400DB633A /* ContentDetailView.swift */,
+				64EC631429361BDF00DB633A /* CodeTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				64EC630E2934D25400DB633A /* ContentDetailView.swift in Sources */,
 				83CAF21D25F03C8D00EC180E /* LearningApp.swift in Sources */,
 				64EC630C2934CFF700DB633A /* ContentViewRow.swift in Sources */,
+				64EC631529361BDF00DB633A /* CodeTextView.swift in Sources */,
 				83CAF23325F03D1600EC180E /* ContentModel.swift in Sources */,
 				644B64C029332EF300818081 /* Models.swift in Sources */,
 				64EC63132934D6BB00DB633A /* Constants.swift in Sources */,
