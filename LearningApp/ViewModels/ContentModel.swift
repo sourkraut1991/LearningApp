@@ -8,6 +8,8 @@
 import Foundation
 
 class ContentModel: ObservableObject {
+    // Current Selected Content and test
+    @Published var currentContentSelected:Int?
     
     // List of modules
     @Published var modules = [Module]()

@@ -9,7 +9,9 @@ import SwiftUI
 import AVKit
 
 struct ContentDetailView: View {
+    
     @EnvironmentObject var model: ContentModel
+    
     var body: some View {
         let lesson = model.currentLesson
         let url = URL(string: Constants.videoHostUrl + (lesson?.video ?? ""))
@@ -31,20 +33,37 @@ struct ContentDetailView: View {
                     
                 } label: {
                     ZStack {
-                        Rectangle()
+                        RectangleCard(color: Color.green)
                             .frame(height: 48)
-                            .foregroundColor(Color.green)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
                         
                         Text("Next Lesson: \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)")
                             .bold()
                             .foregroundColor(Color.white)
                     }
                     .padding()
-                   
+                    
                 }
-            } }
+            }
+            else {
+                //Show complete button instead
+                
+                Button(action: {
+                    
+                    //Take the user back to homeview
+                    model.currentContentSelected = nil
+                    
+                }, label: {
+                    ZStack {
+                        RectangleCard(color: Color.green)
+                            .frame(height: 48)
+                        Text("Complete")
+                            .bold()
+                            .foregroundColor(Color.white)
+                    }
+                })
+            }
+            
+        }
         .padding()
         .navigationBarTitle(lesson?.title ?? "")
     }
