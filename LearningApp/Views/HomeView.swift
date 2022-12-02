@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  LearningApp
 //
-//  Created by Christopher Ching on 2021-03-03.
+//  Created by ed on 11/28/22.
 //
 
 import SwiftUI
@@ -57,6 +57,8 @@ struct HomeView: View {
                                 
                             }
                         }
+                        .padding(.bottom, 10)
+                        
                         
                     }
                     .accentColor(.black)
@@ -65,7 +67,19 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("Get Started")
+            // 
+            .onChange(of: model.currentContentSelected) {changedValue in
+                if changedValue == nil {
+                    model.currentModule = nil
+                }
+            }
+            .onChange(of: model.currentTestSelected) { changedValue in
+                if changedValue == nil {
+                    model.currentModule = nil
+                }
+            }
         }
+        .navigationViewStyle(.stack)
     }
 }
 

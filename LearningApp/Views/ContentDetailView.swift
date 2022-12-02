@@ -37,8 +37,8 @@ struct ContentDetailView: View {
                             .frame(height: 48)
                         
                         Text("Next Lesson: \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)")
-                            .bold()
                             .foregroundColor(Color.white)
+                            .bold()
                     }
                     .padding()
                     

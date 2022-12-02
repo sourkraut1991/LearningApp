@@ -8,11 +8,6 @@
 import Foundation
 
 class ContentModel: ObservableObject {
-    
-    // Current Selected Content and test
-    @Published var currentContentSelected:Int?
-    @Published var currentTestSelected:Int?
-    
     // List of modules
     @Published var modules = [Module]()
     
@@ -24,19 +19,26 @@ class ContentModel: ObservableObject {
     @Published var currentLesson: Lesson?
     var currentLessonIndex = 0
     
-    // Current Lesson Explanation
-    @Published var codeText = NSAttributedString()
-    
-    // Current Question
+    // Current question
     @Published var currentQuestion: Question?
     var currentQuestionIndex = 0
     
+    // Current lesson explanation
+    @Published var codeText = NSAttributedString()
     var styleData: Data?
+    
+    // Current selected content and test
+    @Published var currentContentSelected:Int?
+    @Published var currentTestSelected:Int?
+    
     
     init() {
         
+        // Parse local included json data
         getLocalData()
         
+        // Download remote json file and parse data
+        getRemoteData()
     }
     
     // MARK: - Data methods
@@ -77,6 +79,50 @@ class ContentModel: ObservableObject {
             print("Couldn't parse style data")
         }
         
+    }
+    
+    func getRemoteData() {
+       
+        // String path
+        let urlString = "https://sourkraut1991.github.io/learningapp-data/data2.json"
+        
+        // Create URL Object
+        let url = URL(string: urlString)
+        guard url != nil else {
+            // Couldn't create url
+            return
+        }
+        // create a URLRequest Object
+        let request = URLRequest(url: url!)
+        
+        //Get the Session and kick off the task
+        let session = URLSession.shared
+        
+      
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            // Check if there is an error
+            guard error == nil else {
+                // There was an error
+                return
+            }
+            do {
+                //Create JSON Decover
+                let decoder = JSONDecoder()
+                
+               let modules = try decoder.decode([Module].self, from: data!)
+                
+                // Append parsed modules into modules property
+                DispatchQueue.main.async {
+                    self.modules += modules
+                }
+             
+            }
+            catch {
+                //Couldn't parse json
+            }
+        }
+        // Kick off data task
+        dataTask.resume()
     }
     
     // MARK: - Module navigation methods
@@ -121,6 +167,7 @@ class ContentModel: ObservableObject {
         // Check that it is within range
         if currentLessonIndex < currentModule!.content.lessons.count {
             
+            
             // Set the current lesson property
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
             codeText = addStyling(currentLesson!.explanation)
@@ -153,6 +200,9 @@ class ContentModel: ObservableObject {
     }
     
     func hasNextLesson() -> Bool {
+        guard currentModule != nil else {
+            return false
+        }
         
         return (currentLessonIndex + 1 < currentModule!.content.lessons.count)
     }
